@@ -1,7 +1,7 @@
-import Layout from '../components/layout';
-
 import Head from 'next/head';
 import Link from 'next/link';
+
+import Layout from '../components/layout';
 
 const About = () => {
   return (
