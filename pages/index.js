@@ -14,12 +14,12 @@ const options = {
 };
 
 export async function getStaticProps() {
-  const postList = await fetch(URL, options);
-  const data = await postList.json();
-  return {props:{data}};
+  const response= await fetch(URL, options);
+  const postList = await response.json();
+  return {props: {postList}};
 }
 
-export default function Home({ data }) {
+export default function Home({ postList }) {
   return (
     <Layout home>
       <Head>
@@ -34,9 +34,8 @@ export default function Home({ data }) {
       </p>
       </section>
       <section>
-        {data.map((post, index) => (
-          // Link to component slug route
-          <Link href="/" key={index}>
+        {postList.map((post) => (
+          <Link href={`/posts/${post.slug}`} key={post.id}>
             <a>{post.title}</a>
           </Link>
         ))}
