@@ -1,7 +1,6 @@
-import Head from 'next/head';
 import Link from 'next/link';
 
-import Layout, {siteTitle} from '../components/layout';
+import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.scss';
 
 const URL = 'http://localhost:5000/posts';
@@ -22,11 +21,6 @@ export async function getStaticProps() {
 export default function Home({ postList }) {
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-        <meta name="description" content={siteTitle} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <section className={utilStyles.headingMd}>
       <p>[Your Self Introduction]</p>
       <p>(This is a sample website - you’ll be building a site like this on{' '}
