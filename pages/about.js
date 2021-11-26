@@ -12,7 +12,7 @@ const About = () => {
       <h1>About</h1>
       <h2>
         <Link href="/">
-          <a>Back to home.</a>
+          <a>Back to home</a>
         </Link>
       </h2>
     </Layout>

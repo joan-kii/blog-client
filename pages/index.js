@@ -1,7 +1,9 @@
 import Link from 'next/link';
 
 import Layout from '../components/layout';
-import utilStyles from '../styles/utils.module.scss';
+import styles from '../styles/home.module.scss';
+
+const parse = require('html-react-parser');
 
 const URL = 'http://localhost:5000/posts';
 const options = {
@@ -21,19 +23,19 @@ export async function getStaticProps() {
 export default function Home({ postList }) {
   return (
     <Layout home>
-      <section className={utilStyles.headingMd}>
-      <p>[Your Self Introduction]</p>
-      <p>(This is a sample website - you’ll be building a site like this on{' '}
-        <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-      </p>
-      </section>
-      <section>
-        {postList.map((post) => (
+      {postList.map((post) => {
+        const description = parse('<p>Hello World</p>');
+        return (
           <Link href={`/posts/${post.slug}`} key={post.id}>
-            <a>{post.title}</a>
+            <a>
+              <div className={styles.postLink}>
+                <h3>{post.title}</h3>
+                {description}
+              </div>
+            </a>
           </Link>
-        ))}
-      </section>
+        )
+      })}
       <Link href="/about">
         <a>About</a>
       </Link>

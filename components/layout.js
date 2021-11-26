@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Meta from './meta';
-import styles from './layout.module.scss';
+import styles from '../styles/layout.module.scss';
 import utilStyles from '../styles/utils.module.scss';
 
 const Layout = ({children, home}) => {
@@ -12,23 +12,23 @@ const Layout = ({children, home}) => {
       <div className={styles.container}>
         <header className={styles.header}>
           {home ? (
-            <>
-              <Image 
-                className={styles.image}
-                priority
-                src="/images/paul_graham.jpeg"
-                height={450}
-                width={800} 
-                alt="Paul Graham"/>
-              <h1 className={utilStyles.heading2Xl}>Paul Graham On...</h1> 
-            </> 
+            <div>
+              <div>
+                <Image 
+                  className={styles.image}
+                  priority
+                  src="/images/paul_graham.jpeg"
+                  height={375}
+                  width={700} 
+                  alt="Paul Graham"/>
+              </div> 
+              <h1 className={utilStyles.heading2Xl, styles.homeTitle}>
+                {"Paul Graham's Essays"}
+              </h1> 
+            </div> 
           ) : (
             <>
-              <h2 className={utilStyles.headingLg}>
-                <Link href="/">
-                  <a className={utilStyles.colorInherit}>{name}</a>
-                </Link>
-              </h2>
+              <h2 className={utilStyles.headingXl}>Paul Graham on...</h2>
             </>
           )}
         </header>
