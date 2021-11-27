@@ -1,16 +1,80 @@
-.postSection, .commentsSection {
-  margin: 1rem 0;
+.postSection, 
+.commentsSection,
+.newCommentSection {
+  margin: 1rem auto;
   padding: 1rem;
-  width: 100%;
+  width: 75%;
   background-color: white;
   border-radius: 10px;
-  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 
   h1, h3 {
+    margin-top: 0;
     text-align: center;
   }
 }
 
-/* .commentsSection {
-  
-} */
+.newCommentSection {
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: .5rem;
+      font-size: 1rem;
+    }
+    
+    input {
+      margin-left: .5rem;
+      width: 12rem;
+      height: 2rem;
+      font-size: 1rem;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #ff6600;
+      transition: width 0.4s ease-in-out;
+    }
+
+    input:focus {
+      width: 100%;
+    }
+  }
+}
+
+.nameInput,
+.commentInput {
+  margin: .5rem .5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.submitButton {
+  margin: 1rem auto;
+  width: 25%;
+  height: 2rem;
+  font-size: 1rem;
+  color: #ff6600;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid #ff6600;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  color: white;
+  background-color: #ff6600;
+}
+
+.comment {
+  border-top: 1px solid #d3d3d3;
+  h4 {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 0;
+    margin-left: .5rem;
+    padding: .5rem;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+  }
+}

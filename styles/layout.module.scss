@@ -1,8 +1,9 @@
 .container {
-    max-width: 36rem;
-    padding: 0 1rem;
-    margin: 1rem auto 6rem;
-  }
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 1rem;
+  margin: 1rem auto 6rem;
+}
   
 .header {
   display: flex;
@@ -10,20 +11,22 @@
   align-items: center;
 
   h1, h2 {
-    color: white;
+    color: #ff6600;
   }
 }
   
 .backToHome {
   margin: 3rem 0 0;
+  display: flex;
 
   a {
+    margin: 0 auto;
     height: 2rem;
     display: inline-flex;
   }
 
   a:hover {
-    color: #0A72EF;
+    color: #ff6600;
   }
 }
 

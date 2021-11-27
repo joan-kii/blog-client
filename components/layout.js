@@ -18,8 +18,8 @@ const Layout = ({children, home}) => {
                   className={styles.image}
                   priority
                   src="/images/paul_graham.jpeg"
-                  height={375}
-                  width={700} 
+                  height={275}
+                  width={500} 
                   alt="Paul Graham"/>
               </div> 
               <h1 className={utilStyles.heading2Xl, styles.homeTitle}>

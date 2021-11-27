@@ -25,19 +25,21 @@ export default function Home({ postList }) {
 
   return (
     <Layout home>
-      {postList.map((post) => {
-        const description = parse(post.description);
-        return (
-          <Link href={`/posts/${post.slug}`} key={post.id}>
-            <a>
-              <div className={styles.postLink}>
-                <h3 className={utilStyles.headingMd}>{post.title}</h3>
-                {description}
-              </div>
-            </a>
-          </Link>
-        )
-      })}
+      <div className={styles.postsGrid}>
+        {postList.map((post) => {
+          const description = parse(post.description);
+          return (
+            <Link href={`/posts/${post.slug}`} key={post.id}>
+              <a>
+                <div className={styles.postLink}>
+                  <h3 className={utilStyles.headingMd}>{post.title}</h3>
+                  <p>{description}</p>
+                </div>
+              </a>
+            </Link>
+          )
+        })}
+      </div>
     </Layout>
   )
 }

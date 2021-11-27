@@ -22,17 +22,26 @@ export default function Post({post}) {
         <h1>{post.title}</h1>
         {text}
       </section>
-      <section>
-        <form>
-
+      <section className={styles.newCommentSection}>
+        <h3>Leave a comment</h3>
+        <form action="" method="POST">
+          <div className={styles.nameInput}>
+            <label htmlFor="name">Name:</label>
+            <input type="text" id="name" name="name"/>
+          </div>
+          <div className={styles.commentInput}>
+            <label htmlFor="comment">Comment:</label>
+            <input type="textarea" id="comment" name="comment"/>
+          </div>
+          <button type="submit" className={styles.submitButton}>Send</button>
         </form>
       </section>
       <section className={styles.commentsSection}>
         <h3>Comments</h3>
         {post.comments.map((comment, index) => {
           return (
-            <div key={index}>
-              <h4>{comment.user}</h4>
+            <div className={styles.comment} key={index}>
+              <h4>{comment.user}: </h4>
               <p>{comment.message}</p>
             </div>
           )

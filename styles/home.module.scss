@@ -1,21 +1,24 @@
-.postLink {
-  padding: 1rem 1rem;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid black;
+.postsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
 
+.postLink {
+  padding: .5rem .5rem;
+  border-right: 1px solid #d3d3d3;
 
   h3 {
-    margin-bottom: .5rem;
+    margin-bottom: .3rem;
   }  
 
   p {
     margin-top: 0;
+    font-weight: 100;
+    color: #333;
   }
 }
 
 .postLink:hover {
-  color: #0A72EF;
-  border: 1px solid #0A72EF;
+  color: #ff6600;
 }
-
