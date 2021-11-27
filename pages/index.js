@@ -1,9 +1,10 @@
+import parse from 'html-react-parser';
+
 import Link from 'next/link';
 
 import Layout from '../components/layout';
+import utilStyles from '../styles/utils.module.scss';
 import styles from '../styles/home.module.scss';
-
-const parse = require('html-react-parser');
 
 const URL = 'http://localhost:5000/posts';
 const options = {
@@ -21,24 +22,22 @@ export async function getStaticProps() {
 }
 
 export default function Home({ postList }) {
+
   return (
     <Layout home>
       {postList.map((post) => {
-        const description = parse('<p>Hello World</p>');
+        const description = parse(post.description);
         return (
           <Link href={`/posts/${post.slug}`} key={post.id}>
             <a>
               <div className={styles.postLink}>
-                <h3>{post.title}</h3>
+                <h3 className={utilStyles.headingMd}>{post.title}</h3>
                 {description}
               </div>
             </a>
           </Link>
         )
       })}
-      <Link href="/about">
-        <a>About</a>
-      </Link>
     </Layout>
   )
 }

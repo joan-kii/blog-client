@@ -1,4 +1,8 @@
+import parse from 'html-react-parser';
+
 import Layout from '../../components/layout';
+
+import styles from '../../styles/post.module.scss';
 
 const URL_POSTLIST = 'http://localhost:5000/posts/';
 const options = {
@@ -10,10 +14,30 @@ const options = {
 };
 
 export default function Post({post}) {
+  const text = parse(post.text);
+
   return (
     <Layout>
-      <h1>{post.title}</h1>
-      <p>{post.text}</p>
+      <section className={styles.postSection}>
+        <h1>{post.title}</h1>
+        {text}
+      </section>
+      <section>
+        <form>
+
+        </form>
+      </section>
+      <section className={styles.commentsSection}>
+        <h3>Comments</h3>
+        {post.comments.map((comment, index) => {
+          return (
+            <div key={index}>
+              <h4>{comment.user}</h4>
+              <p>{comment.message}</p>
+            </div>
+          )
+        })}
+      </section>
     </Layout>
   );
 }
