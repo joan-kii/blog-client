@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Meta from './meta';
+import Footer from './footer';
 import styles from '../styles/layout.module.scss';
 import utilStyles from '../styles/utils.module.scss';
 
@@ -44,6 +45,7 @@ const Layout = ({children, home}) => {
           </div>
         )}
       </div>
+      <Footer />
     </>
   )
 };

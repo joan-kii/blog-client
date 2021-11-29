@@ -1,4 +1,6 @@
 import parse from 'html-react-parser';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import Layout from '../../components/layout';
 
@@ -14,14 +16,29 @@ const getOptions = {
 };
 
 export default function Post({post}) {
+
+  const [nameValue, setNameValue] = useState('');
+  const [commentValue, setCommentValue] = useState('');
+  const router = useRouter();
+
   const text = parse(post.text);
+
+  const handleNameChange = (e) => {
+    e.preventDefault();
+    setNameValue(e.target.value);
+  };
+
+  const handleCommentChange = (e) => {
+    e.preventDefault();
+    setCommentValue(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newComment = {
-      name: e.target.name.value,
-      comment: e.target.comment.value
+      name: nameValue,
+      comment: commentValue
     };
     const postOptions = {
       method: 'POST',
@@ -33,7 +50,11 @@ export default function Post({post}) {
     };
 
     const request = await fetch(URL + post.slug, postOptions);
-    console.log(request.ok);
+    if (request.status === 200) {
+      setNameValue('');
+      setCommentValue('');
+      router.reload(window.location.pathname);
+    }
   };
 
   return (
@@ -47,11 +68,23 @@ export default function Post({post}) {
         <form onSubmit={handleSubmit}>
           <div className={styles.nameInput}>
             <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required/>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              value={nameValue} 
+              onChange={handleNameChange}
+              required />
           </div>
           <div className={styles.commentInput}>
             <label htmlFor="comment">Comment:</label>
-            <input type="textarea" id="comment" name="comment" required/>
+            <input 
+              type="textarea" 
+              id="comment" 
+              name="comment" 
+              value={commentValue} 
+              onChange={handleCommentChange}
+              required />
           </div>
           <button type="submit" className={styles.submitButton}>Send</button>
         </form>

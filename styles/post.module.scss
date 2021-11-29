@@ -64,6 +64,10 @@
   background-color: #ff6600;
 }
 
+.submitButton:focus {
+  outline: none;
+}
+
 .comment {
   border-top: 1px solid #d3d3d3;
   h4 {
