@@ -6,13 +6,13 @@ import Footer from './footer';
 import styles from '../styles/layout.module.scss';
 import utilStyles from '../styles/utils.module.scss';
 
-const Layout = ({children, home}) => {
+const Layout = ({children, home, about}) => {
   return (
-    <>
+    <div className={styles.layout}>
       <Meta />
       <div className={styles.container}>
         <header className={styles.header}>
-          {home ? (
+          {home && (
             <div>
               <div>
                 <Image 
@@ -27,13 +27,17 @@ const Layout = ({children, home}) => {
                 {"Paul Graham's Essays"}
               </h1> 
             </div> 
-          ) : (
+          )}
+          {(!about && !home) && (
             <>
               <h2 className={utilStyles.headingXl}>Paul Graham on...</h2>
             </>
+          )} 
+          {about && (
+            <h2 className={utilStyles.headingXl}>This is just an exercise...</h2>
           )}
         </header>
-        {!home && (
+        {(!home && !about) && (
           <div className={styles.backToHome}>
             <Link href="/">
               <a>
@@ -56,7 +60,7 @@ const Layout = ({children, home}) => {
         )}
       </div>
       <Footer />
-    </>
+    </div>
   )
 };
 

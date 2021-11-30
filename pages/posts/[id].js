@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Layout from '../../components/layout';
-
 import styles from '../../styles/post.module.scss';
 
 const URL = 'http://localhost:5000/posts/';

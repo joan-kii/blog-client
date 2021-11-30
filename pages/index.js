@@ -37,8 +37,8 @@ export default function Home({ postList }) {
                 </div>
               </a>
             </Link>
-          )
-        })}
+          )})
+        }
       </div>
     </Layout>
   )
