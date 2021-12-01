@@ -1,11 +1,11 @@
 .postsGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
 }
 
 .postLink {
-  padding: .5rem .5rem;
+  padding: 0 1.5rem;
   border-right: 1px solid #d3d3d3;
 
   h3 {
