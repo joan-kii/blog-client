@@ -1,3 +1,20 @@
- // Variables
+// Variables
 
- $YC_Orange: #ff6600;
+$black: #333;
+$blueLink: #268bd2;
+$YC_Orange: #ff6600;
+$grey: #d3d3d3;
+
+// Breakpoints
+
+@mixin  breakpoint($point) {
+  @if $point == desktop {
+    @media (max-width: 70em) { @content ;}
+  }
+  @else if $point == tablet {
+    @media (max-width: 40em) { @content ;}
+  }
+  @else if $point == mobile {
+    @media (max-width: 40em) { @content ;}
+  }
+}

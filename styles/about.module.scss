@@ -1,5 +1,12 @@
+@import "utilities";
+
 .container {
   margin: 0 auto;
   padding: 5rem 0;
   width: 50%;
+
+  @include breakpoint(desktop) {
+    width: 75%;
+    text-align: center;
+  }
 }

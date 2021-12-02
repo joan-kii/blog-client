@@ -1,16 +1,29 @@
+@import "utilities";
+
 .footer {
   width: 100%;
-  height: 2.5rem;
-  background-color: #ff6600;
+  min-height: 2.5rem;
+  background-color: $YC_Orange;
 
   nav {
     height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    @include breakpoint(desktop) {
+      flex-direction: column;
+    }
     
     a {
       color: white;
+      @include breakpoint(desktop) {
+        margin: .4rem 0;
+      }
+      
+      @include breakpoint(mobile) {
+        font-size: .8rem;
+      }
     }
 
     a:hover{
