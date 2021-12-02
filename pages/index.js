@@ -26,12 +26,12 @@ export default function Home({ postList }) {
   return (
     <Layout home>
       <div className={styles.postsGrid}>
-        {postList.map((post) => {
+        {postList.map((post, index) => {
           const description = parse(post.description);
           return (
             <Link href={`/posts/${post.slug}`} key={post._id}>
-              <a>
-                <div className={styles.postLink}>
+              <a className={index === 2 ? styles.lastPostLink : styles.postLink}>
+                <div>
                   <h3 className={utilStyles.headingMd}>{post.title}</h3>
                   {description}
                 </div>
