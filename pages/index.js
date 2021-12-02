@@ -6,7 +6,8 @@ import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.scss';
 import styles from '../styles/home.module.scss';
 
-const URL = 'http://localhost:5000/posts';
+const URL = process.env.API_URL + 'posts/';
+
 const options = {
   method: 'GET',
   mode: 'cors',

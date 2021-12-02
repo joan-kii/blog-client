@@ -5,7 +5,8 @@ import { useRouter } from 'next/router';
 import Layout from '../../components/layout';
 import styles from '../../styles/post.module.scss';
 
-const URL = 'http://localhost:5000/posts/';
+const URL = process.env.API_URL + 'posts/';
+
 const getOptions = {
   method: 'GET',
   mode: 'cors',
