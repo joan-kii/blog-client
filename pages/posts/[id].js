@@ -15,7 +15,7 @@ const getOptions = {
   }
 };
 
-export default function Post({post}) {
+export default function Post({post, URL_SINGLE_POST}) {
 
   const [nameValue, setNameValue] = useState('');
   const [commentValue, setCommentValue] = useState('');
@@ -49,7 +49,7 @@ export default function Post({post}) {
       }
     };
 
-    const request = await fetch(URL + post.slug, postOptions);
+    const request = await fetch(URL_SINGLE_POST, postOptions);
     if (request.status === 200) {
       setNameValue('');
       setCommentValue('');
@@ -124,5 +124,5 @@ export async function getStaticProps({ params }) {
   const URL_SINGLE_POST = URL + params.id;
   const response = await fetch(URL_SINGLE_POST, getOptions);
   const post = await response.json();
-  return {props: {post}};
+  return {props: {post, URL_SINGLE_POST}};
 }
