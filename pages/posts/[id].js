@@ -126,6 +126,6 @@ export async function getStaticProps({ params }) {
   const post = await response.json();
   return {
     props: {post, URL_SINGLE_POST},
-    revalidate: 0
+    revalidate: 1
   };
 }
