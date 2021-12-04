@@ -124,5 +124,8 @@ export async function getStaticProps({ params }) {
   const URL_SINGLE_POST = URL + params.id;
   const response = await fetch(URL_SINGLE_POST, getOptions);
   const post = await response.json();
-  return {props: {post, URL_SINGLE_POST}};
+  return {
+    props: {post, URL_SINGLE_POST},
+    revalidate: 0
+  };
 }
