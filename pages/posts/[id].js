@@ -1,6 +1,5 @@
 import parse from 'html-react-parser';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 
 import Layout from '../../components/layout';
 import styles from '../../styles/post.module.scss';
@@ -19,7 +18,7 @@ export default function Post({post, URL_SINGLE_POST}) {
 
   const [nameValue, setNameValue] = useState('');
   const [commentValue, setCommentValue] = useState('');
-  const router = useRouter();
+  const [postComments, setPostComments] = useState(post.comments);
 
   const text = parse(post.text);
 
@@ -49,11 +48,12 @@ export default function Post({post, URL_SINGLE_POST}) {
       }
     };
 
-    const request = await fetch(URL_SINGLE_POST, postOptions);
-    if (request.status === 200) {
+    const response = await fetch(URL_SINGLE_POST, postOptions);
+    const post = await response.json();
+    if (response.status === 200) {
       setNameValue('');
       setCommentValue('');
-      router.replace(router.asPath);
+      setPostComments(post.comments);
     }
   };
 
@@ -91,7 +91,7 @@ export default function Post({post, URL_SINGLE_POST}) {
       </section>
       <section className={styles.commentsSection}>
         <h3>Comments</h3>
-        {post.comments.map((comment, index) => {
+        {postComments.map((comment, index) => {
           return (
             <div className={styles.comment} key={index}>
               <h4>{comment.name}: </h4>
