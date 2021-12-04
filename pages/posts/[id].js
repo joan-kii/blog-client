@@ -1,6 +1,5 @@
 import parse from 'html-react-parser';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 
 import Layout from '../../components/layout';
 import styles from '../../styles/post.module.scss';
@@ -19,7 +18,6 @@ export default function Post({post, URL_SINGLE_POST}) {
 
   const [nameValue, setNameValue] = useState('');
   const [commentValue, setCommentValue] = useState('');
-  const router = useRouter();
 
   const text = parse(post.text);
 
@@ -53,7 +51,7 @@ export default function Post({post, URL_SINGLE_POST}) {
     if (request.status === 200) {
       setNameValue('');
       setCommentValue('');
-      router.reload(window.location.pathname);
+      window.location.reload(true);
     }
   };
 
