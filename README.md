@@ -9,7 +9,7 @@
 
 ## Related
 
-- [Blog Demo]()
+- [Blog Demo](https://blog-client-joan-kii.vercel.app/)
 - [CMS Code](https://github.com/joan-kii/blog-cms) 
 - [CMS Demo]()
 - [API Code](https://github.com/joan-kii/blog-api)
