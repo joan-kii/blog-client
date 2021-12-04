@@ -120,7 +120,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const URL_SINGLE_POST = URL + params.id;
   const response = await fetch(URL_SINGLE_POST, getOptions);
   const post = await response.json();
