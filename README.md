@@ -11,7 +11,7 @@
 
 - [Blog Demo](https://blog-client-joan-kii.vercel.app/)
 - [CMS Code](https://github.com/joan-kii/blog-cms) 
-- [CMS Demo]()
+- [CMS Demo](https://joan-kii.github.io/blog-cms/)
 - [API Code](https://github.com/joan-kii/blog-api)
 
 Deployed in Vercel.
